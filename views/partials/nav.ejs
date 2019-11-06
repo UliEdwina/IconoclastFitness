@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="/">Iconoclast</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+            <% if(!user) {%>
+                <% console.log(user) %>
+                <li class="nav-item active">
+                    <a href="./api/users/signup" class="nav-link">Sign up <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a href="/" class="nav-link">Sign in</a>
+                </li>                   
+            <% } else { %>
+                <li class="nav-item activev">
+                        <a href="/api/users/edit-profile" class="nav-link">Logged in as <span style="color: orange"><%= user.email %></span></a>
+                </li> 
+                
+                <li class="nav-item">
+                        <a href="/api/users/logout" class="nav-link">Logout</a>
+                </li> 
+            <% } %>
+    
+            </ul>
+        </div>
+    
+          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+          
+        </ul>
+      </div>
+      </div>
+  </nav>
