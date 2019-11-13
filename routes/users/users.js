@@ -16,5 +16,21 @@ router.get('/signup', (req, res) => {
 })
 router.post('/signup', signupValidation, userController.signup)
 
+router.get('/signin', (req, res) => {
+    if (req.isAuthenticated()) 
+    res.redirect('/')
+    res.render('auth/signin')
+})
 
+router.post('/signin', passport.authenticate('local-login', {
+    successRedirect: '/',
+    failureRedirect: '/api/users/signin',
+    failureflash: true
+
+}))
+
+router.get('/logout', (req, res) => {
+    req.logout()
+    res.redirect("/")
+})
 module.exports = router;

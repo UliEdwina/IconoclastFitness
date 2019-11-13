@@ -22,7 +22,7 @@ module.exports = {
                     
                     newUser.email        = req.body.email
                     newUser.profile.name = req.body.name
-                    newUser.profile.
+                    newUser.profile.picture = newUser.email
                     
                     hasher.create(req.body.password)
                             .then( hash => {
@@ -55,6 +55,43 @@ module.exports = {
             .catch(err => {
                 throw err
             })
+    },
+    signin:(params) => {
+        return new Promise((resolve, reject) => {
+            User.findOne({email: params.email}) 
+            
+                .then(user => {
+                    if(user){
+                        bcrypt.compare(params.password, user.password)
+                .then( result => {
+                    if(!result){
+                        let errors = {}
+                        errors.message = 'Password Does Not match'
+
+                        errors.status = 400
+
+                        reject(errors)
+                    }else {
+                        resolve(user)
+                    }
+                })
+                    .catch(err => reject (err))
+            }else {
+                let errors = {}
+                errors.message = 'No such Users'
+
+                error.status = 400
+
+                reject(errors)
+            }
+
+                    
+                })
+                .catch(err => reject(err))
+            
+
+        })
+
     }
     
 }
