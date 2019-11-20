@@ -7484,12 +7484,14 @@ h1, h2, h3, h4, h5,
       color: #fff; }
 
 .navbar-brand {
-  font-size: 20px;
+  font-size: 50px;
   line-height: 1;
   text-transform: uppercase;
   display: block;
   font-weight: 900;
-  background: url(../images/logo-bg.jpg) no-repeat;
+  background: url("../../images/logo-bg.jpg") no-repeat;
+  padding-bottom:30px;
+
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: cover;

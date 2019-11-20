@@ -81,6 +81,7 @@ app.use(expressValidator({
 
 app.use((req, res, next) => {
     res.locals.user = req.user
+    res.locals.admin = req.admin
 
     res.locals.errors        = req.flash('errors')
     res.locals.success       = req.flash('success')
@@ -95,6 +96,7 @@ app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 
 app.use('/api/admin', admin)
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
