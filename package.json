@@ -9,7 +9,7 @@
     "@coreui/coreui": "^2.1.16",
     "async": "^3.1.0",
     "bcryptjs": "^2.4.3",
-    "chart.js": "^2.9.2",
+    "chart.js": "^2.9.4",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.1.2",
     "cookie-parser": "~1.4.4",
